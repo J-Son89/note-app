@@ -1,28 +1,35 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-
-class App extends Component {
-  render() {
+import React from 'react'
+import './App.less'
+import Header from './containers/header'
+import SavedNotes from './containers/savedNotes'
+import NoteEditor from './containers/noteEditor'
+import { Grid, Row, Col } from 'react-bootstrap'
+export default class App extends React.Component {
+  render () {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
+      <Grid>
+        <Row className='show-grid'>
+          <Col sm={12} md={12} lg={12} >
+
+            <Header />
+          </Col>
+        </Row>
+        <Row className='show-grid'>
+
+          <Col xs={12} sm={3} md={3} lg={3} xlg={12}>
+            <div className='main-content container-fluid text-center'>
+              <SavedNotes />
+            </div>
+          </Col>
+          <Col xs={12} sm={9} md={9} lg={9} xlg={12}>
+            <NoteEditor />
+          </Col>
+
+        </Row>
+      </Grid>
+    )
   }
 }
 
-export default App;
+App.propTypes = {
+}
