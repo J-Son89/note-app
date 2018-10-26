@@ -1,10 +1,5 @@
 html,body {
-  margin: 0;
-  padding: 0;
-  font-family: Poppins, sans-serif;
-  color: #4d4d4d;
-  font-size: 10px;
-  background: #F6F6F6;
+ 
 }
 
 a {
@@ -46,12 +41,4 @@ p {
 .btn:active  {
     margin-top: 0;
     border: solid 0.1rem #e7007a;
-}
-@media screen and (min-width:48em) {
-  a.btn-primary:hover
-  {
-      background-color: #FFFFFF;
-      color:#e7007a;
-  }
-
 }
