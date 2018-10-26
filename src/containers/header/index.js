@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Navbar, Nav, Button } from 'react-bootstrap'
 import logo from '../../images/notepad.png'
-import './index.less'
+import './index.css'
 
 class Header extends Component {
   render () {

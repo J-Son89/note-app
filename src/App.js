@@ -1,5 +1,5 @@
 import React from 'react'
-import './App.less'
+import './App.css'
 import Header from './containers/header'
 import SavedNotes from './containers/savedNotes'
 import NoteEditor from './containers/noteEditor'
