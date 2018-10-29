@@ -1,11 +1,12 @@
-import React, { Component } from 'react'
-import { Navbar, Nav, Button } from 'react-bootstrap'
+import React from 'react'
+import { Navbar, Nav} from 'react-bootstrap'
+import CreateNote from '../CreateNote';
 import logo from '../../images/notepad.png'
 import './index.css'
 
-class Header extends Component {
-  render () {
-    return (
+export const Header = (props) => {
+  const { createNoteFunction } = props;  
+  return (
 
       <Navbar staticTop fluid collapseOnSelect>
 
@@ -16,12 +17,11 @@ class Header extends Component {
           </Navbar.Brand>
         </Navbar.Header>
         <Nav pullRight>
-          <Button bsStyle='primary' bsSize='large'> + Create</Button>
+        <CreateNote createNoteFunction={createNoteFunction} > </CreateNote>
         </Nav>
       </Navbar>
 
-    )
-  }
+    );
 }
 
 export default Header
