@@ -1,17 +1,16 @@
 import React from 'react';
-import { Button } from 'react-bootstrap'
+import { Button } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 
 export const CreateNote = (props) => {
-  const { createNoteFunction } = props;  
+  const { createNoteFunction } = props
   return (
-   <Button bsStyle='primary' bsSize='large' onClick={createNoteFunction}> + Create</Button>
-  );
+    <Button bsStyle='primary' bsSize='large' onClick={createNoteFunction}> + Create</Button>
+  )
 }
 
 CreateNote.propTypes = {
-    createNoteFunction:PropTypes.function
-};
+  createNoteFunction: PropTypes.Function
+}
 
-export default CreateNote;
-
+export default CreateNote

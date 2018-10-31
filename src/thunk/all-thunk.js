@@ -1,7 +1,7 @@
-import { watchnoteEditorRequest } from './note-editor-thunk';
+import { watchnoteEditorRequest } from './note-editor-thunk'
 
-function Thunk() {
-  return watchnoteEditorRequest();
+function Thunk () {
+  return watchnoteEditorRequest()
 }
 
-export default Thunk;
+export default Thunk

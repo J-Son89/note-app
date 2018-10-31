@@ -1,28 +1,23 @@
-import { notesActions } from '../constants/constants';
+import { notesActions } from '../constants/constants'
 
 const notesAction = {
-  getNotes: () => ({
-    type: notesActions.GET_NOTES
-  }),
-  setNotes:(notes)  => ({
+  setNotes: (notes) => ({
     type: notesActions.SET_NOTES,
-    notes:notes
-  }),
-   getNote: (id) => ({
-    type: notesActions.GET_NOTE,
-    id: id
-  }),
-  setNote: (note) => ({
-    type: notesActions.GET_NOTE,
-    note: note
+    notes: notes
   }),
   createNote: () => ({
-  	type: notesActions.CREATE_NOTE
+    type: notesActions.CREATE_NOTE
   }),
-  setActiveNote:(id) => ({
-  	type: notesActions.SET_ACTIVE_NOTE,
-    id: id
+  setActiveNote: (activeNote) => ({
+    type: notesActions.SET_ACTIVE_NOTE,
+    activeNote: activeNote
+  }),
+  upsertNote: (id, title, note) => ({
+    type: notesActions.UPSERT_NOTE,
+    id: id,
+    title: title,
+    note: note
   })
- }
+}
 
- export {notesAction};
+export { notesAction }

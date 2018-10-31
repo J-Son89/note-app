@@ -5,6 +5,8 @@
   "dependencies": {
     "axios": "^0.18.0",
     "connected-react-router": "^4.5.0",
+    "draft-js": "^0.10.5",
+    "draft-js-plugins-editor": "^2.1.1",
     "history": "^4.7.2",
     "react": "^16.6.0",
     "react-bootstrap": "^0.32.4",
@@ -20,13 +22,19 @@
     "standard-fix": "standard --fix",
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "standard && react-scripts test",
+    "test": "standard && react-scripts test && jest",
     "eject": "react-scripts eject",
     "build-css": "less-watch-compiler --run-once --main-file=index.less src/less/ src/less/",
     "watch-css": "npm run build-css && less-watch-compiler --main-file=index.less src/less/ src/less/"
   },
   "eslintConfig": {
     "extends": "react-app"
+  },
+  "standard": {
+    "ignore": [
+      "**/serviceWorker.js",
+      "src/testing/**/*.js"
+    ]
   },
   "browserslist": [
     ">0.2%",
@@ -35,7 +43,10 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "jest": "^23.6.0",
     "less-watch-compiler": "^1.12.1",
+    "react-test-renderer": "^16.6.0",
+    "react-testing-library": "^5.2.3",
     "standard": "^12.0.1"
   }
 }
