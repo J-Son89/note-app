@@ -22,7 +22,7 @@
     "standard-fix": "standard --fix",
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "standard && react-scripts test && jest",
+    "test": "react-scripts test && jest --coverage",
     "eject": "react-scripts eject",
     "build-css": "less-watch-compiler --run-once --main-file=index.less src/less/ src/less/",
     "watch-css": "npm run build-css && less-watch-compiler --main-file=index.less src/less/ src/less/"

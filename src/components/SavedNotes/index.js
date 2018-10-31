@@ -25,8 +25,8 @@ const SavedNotes = (props) => {
 }
 
 SavedNotes.propTypes = {
-  notes: PropTypes.Array,
-  showClicked: PropTypes.Function
+  notes: PropTypes.array,
+  showClicked: PropTypes.func
 }
 
 export default SavedNotes

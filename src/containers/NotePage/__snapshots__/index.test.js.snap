@@ -1,0 +1,683 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Note Page active note title should display notes are not loaded 1`] = `
+<div
+  class="container"
+>
+  <div
+    class="show-grid row"
+  >
+    <div
+      class="col-lg-12 col-md-12 col-sm-12"
+    >
+      <nav
+        class="navbar navbar-default navbar-static-top"
+      >
+        <div
+          class="container-fluid"
+        >
+          <div
+            class="navbar-header"
+          >
+            <span
+              class="navbar-brand"
+            >
+              <a
+                href="/"
+              >
+                 
+                <img
+                  alt="logo"
+                  src="notepad.png"
+                />
+              </a>
+              <h1>
+                Notes
+              </h1>
+            </span>
+          </div>
+          <ul
+            class="nav navbar-nav navbar-right"
+          >
+            <button
+              class="btn btn-sm btn-default"
+              type="button"
+            >
+               + Create
+            </button>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+  <div
+    class="show-grid row"
+  >
+    <div
+      class="col-lg-4 col-md-4 col-sm-5 col-xs-12"
+      xlg="3"
+    >
+      <div
+        class="main-content container-fluid text-center"
+      >
+        <p>
+          loading...
+        </p>
+      </div>
+    </div>
+    <div
+      class="col-lg-8 col-md-8 col-sm-7 col-xs-12"
+      xlg="9"
+    >
+      <div
+        class="outline"
+      >
+        <input
+          type="text"
+          value="New Note"
+        />
+        <div
+          class="RichEditor-root"
+        >
+          <div
+            class="RichEditor-controls"
+          >
+            <span
+              class="RichEditor-styleButton"
+            >
+              H1
+            </span>
+            <span
+              class="RichEditor-styleButton"
+            >
+              H2
+            </span>
+            <span
+              class="RichEditor-styleButton"
+            >
+              H3
+            </span>
+            <span
+              class="RichEditor-styleButton"
+            >
+              H4
+            </span>
+            <span
+              class="RichEditor-styleButton"
+            >
+              H5
+            </span>
+            <span
+              class="RichEditor-styleButton"
+            >
+              H6
+            </span>
+            <span
+              class="RichEditor-styleButton"
+            >
+              Blockquote
+            </span>
+            <span
+              class="RichEditor-styleButton"
+            >
+              UL
+            </span>
+            <span
+              class="RichEditor-styleButton"
+            >
+              OL
+            </span>
+            <span
+              class="RichEditor-styleButton"
+            >
+              Code Block
+            </span>
+          </div>
+          <div
+            class="RichEditor-controls"
+          >
+            <span
+              class="RichEditor-styleButton"
+            >
+              Bold
+            </span>
+            <span
+              class="RichEditor-styleButton"
+            >
+              Italic
+            </span>
+            <span
+              class="RichEditor-styleButton"
+            >
+              Underline
+            </span>
+            <span
+              class="RichEditor-styleButton"
+            >
+              Monospace
+            </span>
+          </div>
+          <div
+            class="RichEditor-editor"
+          >
+            <div
+              class="DraftEditor-root"
+            >
+              <div
+                class="public-DraftEditorPlaceholder-root"
+              >
+                <div
+                  class="public-DraftEditorPlaceholder-inner"
+                  id="placeholder-123"
+                  style="white-space: pre-wrap;"
+                >
+                  Write your note here...
+                </div>
+              </div>
+              <div
+                class="DraftEditor-editorContainer"
+              >
+                <div
+                  aria-describedby="placeholder-123"
+                  class="notranslate public-DraftEditor-content"
+                  contenteditable="true"
+                  role="textbox"
+                  spellcheck="true"
+                  style="outline: none; white-space: pre-wrap; word-wrap: break-word;"
+                >
+                  <div
+                    data-contents="true"
+                  >
+                    <div
+                      class=""
+                      data-block="true"
+                      data-editor="123"
+                      data-offset-key="123-0-0"
+                    >
+                      <div
+                        class="public-DraftStyleDefault-block public-DraftStyleDefault-ltr"
+                        data-offset-key="123-0-0"
+                      >
+                        <span
+                          data-offset-key="123-0-0"
+                        >
+                          <br
+                            data-text="true"
+                          />
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button
+          class="btn btn-sm btn-default"
+          type="button"
+        >
+           Save
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Note Page should render "loading..." when notes are not loaded 1`] = `
+<div
+  class="container"
+>
+  <div
+    class="show-grid row"
+  >
+    <div
+      class="col-lg-12 col-md-12 col-sm-12"
+    >
+      <nav
+        class="navbar navbar-default navbar-static-top"
+      >
+        <div
+          class="container-fluid"
+        >
+          <div
+            class="navbar-header"
+          >
+            <span
+              class="navbar-brand"
+            >
+              <a
+                href="/"
+              >
+                 
+                <img
+                  alt="logo"
+                  src="notepad.png"
+                />
+              </a>
+              <h1>
+                Notes
+              </h1>
+            </span>
+          </div>
+          <ul
+            class="nav navbar-nav navbar-right"
+          >
+            <button
+              class="btn btn-sm btn-default"
+              type="button"
+            >
+               + Create
+            </button>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+  <div
+    class="show-grid row"
+  >
+    <div
+      class="col-lg-4 col-md-4 col-sm-5 col-xs-12"
+      xlg="3"
+    >
+      <div
+        class="main-content container-fluid text-center"
+      >
+        <p>
+          loading...
+        </p>
+      </div>
+    </div>
+    <div
+      class="col-lg-8 col-md-8 col-sm-7 col-xs-12"
+      xlg="9"
+    >
+      <div
+        class="outline"
+      >
+        <input
+          type="text"
+          value="New Note"
+        />
+        <div
+          class="RichEditor-root"
+        >
+          <div
+            class="RichEditor-controls"
+          >
+            <span
+              class="RichEditor-styleButton"
+            >
+              H1
+            </span>
+            <span
+              class="RichEditor-styleButton"
+            >
+              H2
+            </span>
+            <span
+              class="RichEditor-styleButton"
+            >
+              H3
+            </span>
+            <span
+              class="RichEditor-styleButton"
+            >
+              H4
+            </span>
+            <span
+              class="RichEditor-styleButton"
+            >
+              H5
+            </span>
+            <span
+              class="RichEditor-styleButton"
+            >
+              H6
+            </span>
+            <span
+              class="RichEditor-styleButton"
+            >
+              Blockquote
+            </span>
+            <span
+              class="RichEditor-styleButton"
+            >
+              UL
+            </span>
+            <span
+              class="RichEditor-styleButton"
+            >
+              OL
+            </span>
+            <span
+              class="RichEditor-styleButton"
+            >
+              Code Block
+            </span>
+          </div>
+          <div
+            class="RichEditor-controls"
+          >
+            <span
+              class="RichEditor-styleButton"
+            >
+              Bold
+            </span>
+            <span
+              class="RichEditor-styleButton"
+            >
+              Italic
+            </span>
+            <span
+              class="RichEditor-styleButton"
+            >
+              Underline
+            </span>
+            <span
+              class="RichEditor-styleButton"
+            >
+              Monospace
+            </span>
+          </div>
+          <div
+            class="RichEditor-editor"
+          >
+            <div
+              class="DraftEditor-root"
+            >
+              <div
+                class="public-DraftEditorPlaceholder-root"
+              >
+                <div
+                  class="public-DraftEditorPlaceholder-inner"
+                  id="placeholder-123"
+                  style="white-space: pre-wrap;"
+                >
+                  Write your note here...
+                </div>
+              </div>
+              <div
+                class="DraftEditor-editorContainer"
+              >
+                <div
+                  aria-describedby="placeholder-123"
+                  class="notranslate public-DraftEditor-content"
+                  contenteditable="true"
+                  role="textbox"
+                  spellcheck="true"
+                  style="outline: none; white-space: pre-wrap; word-wrap: break-word;"
+                >
+                  <div
+                    data-contents="true"
+                  >
+                    <div
+                      class=""
+                      data-block="true"
+                      data-editor="123"
+                      data-offset-key="123-0-0"
+                    >
+                      <div
+                        class="public-DraftStyleDefault-block public-DraftStyleDefault-ltr"
+                        data-offset-key="123-0-0"
+                      >
+                        <span
+                          data-offset-key="123-0-0"
+                        >
+                          <br
+                            data-text="true"
+                          />
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button
+          class="btn btn-sm btn-default"
+          type="button"
+        >
+           Save
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Note Page should render a blank note when the notes loaded and the active note is newly created 1`] = `
+<div
+  class="container"
+>
+  <div
+    class="show-grid row"
+  >
+    <div
+      class="col-lg-12 col-md-12 col-sm-12"
+    >
+      <nav
+        class="navbar navbar-default navbar-static-top"
+      >
+        <div
+          class="container-fluid"
+        >
+          <div
+            class="navbar-header"
+          >
+            <span
+              class="navbar-brand"
+            >
+              <a
+                href="/"
+              >
+                 
+                <img
+                  alt="logo"
+                  src="notepad.png"
+                />
+              </a>
+              <h1>
+                Notes
+              </h1>
+            </span>
+          </div>
+          <ul
+            class="nav navbar-nav navbar-right"
+          >
+            <button
+              class="btn btn-sm btn-default"
+              type="button"
+            >
+               + Create
+            </button>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+  <div
+    class="show-grid row"
+  >
+    <div
+      class="col-lg-4 col-md-4 col-sm-5 col-xs-12"
+      xlg="3"
+    >
+      <div
+        class="main-content container-fluid text-center"
+      >
+        <div
+          class="list-group"
+        >
+          <button
+            class="active list-group-item"
+            type="button"
+          >
+            New Note
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      class="col-lg-8 col-md-8 col-sm-7 col-xs-12"
+      xlg="9"
+    >
+      <div
+        class="outline"
+      >
+        <input
+          type="text"
+          value="New Note"
+        />
+        <div
+          class="RichEditor-root"
+        >
+          <div
+            class="RichEditor-controls"
+          >
+            <span
+              class="RichEditor-styleButton"
+            >
+              H1
+            </span>
+            <span
+              class="RichEditor-styleButton"
+            >
+              H2
+            </span>
+            <span
+              class="RichEditor-styleButton"
+            >
+              H3
+            </span>
+            <span
+              class="RichEditor-styleButton"
+            >
+              H4
+            </span>
+            <span
+              class="RichEditor-styleButton"
+            >
+              H5
+            </span>
+            <span
+              class="RichEditor-styleButton"
+            >
+              H6
+            </span>
+            <span
+              class="RichEditor-styleButton"
+            >
+              Blockquote
+            </span>
+            <span
+              class="RichEditor-styleButton"
+            >
+              UL
+            </span>
+            <span
+              class="RichEditor-styleButton"
+            >
+              OL
+            </span>
+            <span
+              class="RichEditor-styleButton"
+            >
+              Code Block
+            </span>
+          </div>
+          <div
+            class="RichEditor-controls"
+          >
+            <span
+              class="RichEditor-styleButton"
+            >
+              Bold
+            </span>
+            <span
+              class="RichEditor-styleButton"
+            >
+              Italic
+            </span>
+            <span
+              class="RichEditor-styleButton"
+            >
+              Underline
+            </span>
+            <span
+              class="RichEditor-styleButton"
+            >
+              Monospace
+            </span>
+          </div>
+          <div
+            class="RichEditor-editor"
+          >
+            <div
+              class="DraftEditor-root"
+            >
+              <div
+                class="public-DraftEditorPlaceholder-root"
+              >
+                <div
+                  class="public-DraftEditorPlaceholder-inner"
+                  id="placeholder-123"
+                  style="white-space: pre-wrap;"
+                >
+                  Write your note here...
+                </div>
+              </div>
+              <div
+                class="DraftEditor-editorContainer"
+              >
+                <div
+                  aria-describedby="placeholder-123"
+                  class="notranslate public-DraftEditor-content"
+                  contenteditable="true"
+                  role="textbox"
+                  spellcheck="true"
+                  style="outline: none; white-space: pre-wrap; word-wrap: break-word;"
+                >
+                  <div
+                    data-contents="true"
+                  >
+                    <div
+                      class=""
+                      data-block="true"
+                      data-editor="123"
+                      data-offset-key="123-0-0"
+                    >
+                      <div
+                        class="public-DraftStyleDefault-block public-DraftStyleDefault-ltr"
+                        data-offset-key="123-0-0"
+                      >
+                        <span
+                          data-offset-key="123-0-0"
+                        >
+                          <br
+                            data-text="true"
+                          />
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button
+          class="btn btn-sm btn-default"
+          type="button"
+        >
+           Save
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;

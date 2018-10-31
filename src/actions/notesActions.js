@@ -12,11 +12,14 @@ const notesAction = {
     type: notesActions.SET_ACTIVE_NOTE,
     activeNote: activeNote
   }),
-  upsertNote: (id, title, note) => ({
-    type: notesActions.UPSERT_NOTE,
-    id: id,
-    title: title,
-    note: note
+  updateNote: (id,title,note) => ({
+    type: notesActions.UPDATE_NOTE,
+    id:id,
+    title:title,
+    note:note
+  }),
+  insertNote: () => ({
+    type: notesActions.INSERT_NOTE,
   })
 }
 

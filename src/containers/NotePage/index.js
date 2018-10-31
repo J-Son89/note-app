@@ -39,12 +39,12 @@ class NotePage extends Component {
           </Col>
         </Row>
         <Row className='show-grid'>
-          <Col xs={12} sm={3} md={3} lg={3} xlg={3}>
+          <Col xs={12} sm={5} md={4} lg={4} xlg={3}>
             <div className='main-content container-fluid text-center'>
               <SavedNotes activeNote={activeNote} notesLoaded={notesLoaded} notes={notes} showClicked={this.showClicked} />
             </div>
           </Col>
-          <Col xs={12} sm={9} md={9} lg={9} xlg={9}>
+          <Col xs={12} sm={7} md={8} lg={8} xlg={9}>
             <NoteEditor activeNote={activeNote} saveNoteFunction={this.saveNote} />
           </Col>
         </Row>
@@ -54,7 +54,7 @@ class NotePage extends Component {
 };
 
 NotePage.propTypes = {
-  notes: PropTypes.Object
+  notes: PropTypes.array
 }
 
 const mapStateToProps = (state) => ({ noteState: state.notes })

@@ -32,19 +32,35 @@ export function notesReducer (state = initialState, action) {
         } 
       })
     }
-    case (notesActions.UPSERT_NOTE): {
-      const { id, title, note } = action
+    case (notesActions.INSERT_NOTE): {
+      let { notes } = state
+      const id = notes.length +1
+      const activeNote = {
+        id: id,
+        title: 'New Note',
+        note: EditorState.createEmpty()
+      }
+      let newNotes
+      newNotes = notes.slice()
+      newNotes.push({ activeNote } )
+      return Object.assign({}, state, {
+        notes: newNotes,
+        activeNote:activeNote
+      })
+    }
+    case (notesActions.UPDATE_NOTE): {
+      const { id,title,note } = action
       let { notes } = state
       let newNotes
       newNotes = notes.slice()
-      let index = notes.findIndex(note => note.id === id)
-      newNotes[index] = { id, title, note }
+      const index = notes.findIndex(note => note.id === id)
+      newNotes[index] = { id,title,note }
       return Object.assign({}, state, {
         notes: newNotes,
         activeNote: {
-          id,
-          title,
-          note
+          id:id,
+          title:title,
+          note:note
         }
       })
     }

@@ -7,6 +7,7 @@ import { Button } from 'react-bootstrap';
 import {RichUtils, getDefaultKeyBinding} from 'draft-js';
 import {BlockStyleControls} from '../BlockStyleControls';
 import {InlineStyleControls} from '../InlineStyleControls';
+import {convertToRaw} from 'draft-js';
 
 // const styleMap = {
 //   CODE: {
@@ -20,7 +21,7 @@ import {InlineStyleControls} from '../InlineStyleControls';
 class NoteEditor extends Component {
   constructor (props) {
     super(props)
-    const { activeNote } = props
+    const { activeNote} = props
     this.state = {
       id: activeNote.id,
       title: activeNote.title,
@@ -54,7 +55,8 @@ class NoteEditor extends Component {
       title: newVal
     })
   }
-    _handleKeyCommand(command, note) {
+
+  _handleKeyCommand(command, note) {
     const newState = RichUtils.handleKeyCommand(note, command);
     if (newState) {
       this.onChange(newState);
@@ -109,6 +111,9 @@ class NoteEditor extends Component {
   render () {
     const { title, note } = this.state
     const { saveNoteFunction, activeNote } = this.props
+    const rawNote = JSON.stringify(convertToRaw(note.getCurrentContent()))
+    const rawActiveNote = JSON.stringify(convertToRaw(activeNote.note.getCurrentContent()))
+    const noChangesMade = rawNote===rawActiveNote
     const { id } = activeNote
     
     let className = 'RichEditor-editor';
@@ -145,7 +150,7 @@ class NoteEditor extends Component {
           />
         </div>
       </div>
-      <Button bsStyle='default' bsSize='small' onClick={x => { saveNoteFunction(id, title, note) }}> Save</Button>
+      <Button disabled={noChangesMade} bsStyle='default' bsSize='small' onClick={x => { saveNoteFunction(id, title, note) }}> Save</Button>
       </div>
     );
   }
@@ -155,7 +160,8 @@ class NoteEditor extends Component {
 
 NoteEditor.propTypes = {
   activeNote: PropTypes.object,
-  saveNoteFunction: PropTypes.Function
+  saveNoteFunction: PropTypes.func,
+  lastSave:PropTypes.object
 }
 
 export default NoteEditor
