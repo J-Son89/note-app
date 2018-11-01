@@ -6,7 +6,7 @@ import './index.less'
 const SavedNotes = (props) => {
   const { notesLoaded, notes, showClicked } = props
   if (!notesLoaded) {
-    return <p>loading...</p>
+    return <p className='saved-notes-list-loading'>loading...</p>
   }
   return (
     <ListGroup className='saved-notes-list'>
