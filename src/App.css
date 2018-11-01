@@ -15,6 +15,11 @@ p {
     letter-spacing: 0.3px;
     padding: 8px 30px;
     border-radius: 4px;
+    margin: 5px;
+}
+.container {
+   padding-left:0;
+   margin: 0 auto;
 }
 .btn-default{
   color:#52ADDD;

@@ -6,7 +6,7 @@ import { RichUtils, getDefaultKeyBinding, convertToRaw } from 'draft-js'
 import { BlockStyleControls } from './BlockStyleControls'
 import { InlineStyleControls } from './InlineStyleControls'
 import 'draft-js/dist/Draft.css'
-import './index.less'
+import './index.css'
 
 // const styleMap = {
 //   CODE: {

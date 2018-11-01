@@ -10,7 +10,6 @@
     "glyphicons-only-bootstrap": "^1.0.1",
     "history": "^4.7.2",
     "react": "^16.6.0",
-    "react-app-rewire-less": "^2.1.3",
     "react-bootstrap": "^0.32.4",
     "react-dom": "^16.6.0",
     "react-redux": "^5.0.7",
@@ -21,7 +20,8 @@
   },
   "scripts": {
     "standard": "standard",
-    "standard-fix": "standard --fix less-watch-compiler",
+    "standard-fix": "standard --fix",
+    "stylelint": "stylelint src/**/*.css",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test && jest --coverage",
@@ -49,6 +49,7 @@
     "less-watch-compiler": "^1.12.1",
     "react-test-renderer": "^16.6.0",
     "react-testing-library": "^5.2.3",
-    "standard": "^12.0.1"
+    "standard": "^12.0.1",
+    "stylelint": "^9.7.1"
   }
 }

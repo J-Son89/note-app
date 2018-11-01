@@ -4,7 +4,7 @@ import { createStore, storeEnhancer } from 'redux'
 import { render } from 'react-testing-library'
 import { Provider } from 'react-redux'
 import reducer from '../../global-reducer'
-import { EditorState } from 'draft-js'
+import { EditorState, convertToRaw } from 'draft-js'
 import thunk from 'redux-thunk'
 import { applyMiddleware } from 'redux'
 import { testSamples } from './testSamples'
@@ -74,27 +74,6 @@ describe('Note Page', () => {
 	   		param
     )
     expect(queryByText('loading...')).toBeTruthy()
-
-    expect(container.firstChild).toMatchSnapshot()
-  })
-  it('should render "Todo 3" when note 2 is the activeNote', () => {
-    let param = {
-      notes: {
-        notesLoaded: true,
-        notes: testSamples,
-        activeNote: {
-          id: 2,
-          title: 'Projects',
-          note: testSamples[1].note
-        }
-      }
-    }
-
-    const { container, queryByText } = renderWithRedux(
-      <NotePage />,
-	   		param
-    )
-    expect(queryByText('Todo 3')).toBeTruthy()
 
     expect(container.firstChild).toMatchSnapshot()
   })

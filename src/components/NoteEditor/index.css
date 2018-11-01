@@ -1,8 +1,6 @@
 .save-note-btn-container{
   padding-right: 1rem;
   padding-bottom: 1rem;
-  height: 100%;
-  width:100%;
 }
 
 .save-note-btn{
@@ -16,8 +14,8 @@
 
 .note-editor-title{
   font-weight: bold;
-  padding: none;
-  margin: none;
+  padding: 0;
+  margin: 0;
   border:none;
   width: 100%;
   border-bottom-color: rgb(213,213,213);
@@ -29,7 +27,7 @@
   background: #fff;
   font-family: 'Georgia', serif;
   font-size: 14px;
-  padding: 15px 0px 15px 15px;
+  padding: 15px 0 15px 15px;
   min-height: 70vh;
 }
 
@@ -65,6 +63,7 @@
 }
 
 .RichEditor-editor .public-DraftStyleDefault-pre {
+  background-color:rgb(0,0,0);
   background-color: rgba(0, 0, 0, 0.05);
   font-family: 'Inconsolata', 'Menlo', 'Consolas', monospace;
   font-size: 16px;
