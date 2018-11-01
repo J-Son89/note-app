@@ -1,11 +1,12 @@
-import React, { Component } from 'react';
-import Header from '../../components/Header';
-import SavedNotes from '../../components/SavedNotes';
-import NoteEditor from '../../components/NoteEditor';
-import { Grid, Row, Col } from 'react-bootstrap';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import { getAllNotes, saveNote, getNote,createNote} from '../../thunk/note-editor-thunk';
+import React, { Component } from 'react'
+import Header from '../../components/Header'
+import SavedNotes from '../../components/SavedNotes'
+import NoteEditor from '../../components/NoteEditor'
+import { Grid, Row, Col } from 'react-bootstrap'
+import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
+import { getAllNotes, saveNote, getNote, createNote } from '../../thunk/note-editor-thunk'
+import './index.css'
 
 class NotePage extends Component {
   constructor (props) {
@@ -30,19 +31,17 @@ class NotePage extends Component {
     this.props.dispatch(saveNote(id, title, note))
   }
   render () {
-    const { notes, notesLoaded, activeNote } = this.props.noteState;
+    const { notes, notesLoaded, activeNote } = this.props.noteState
     return (
-      <Grid>
-        <Row className='show-grid'>
+      <Grid className='main-grid'>
+        <Row className='show-grid header'>
           <Col sm={12} md={12} lg={12} >
             <Header createNoteFunction={this.createNote} />
           </Col>
         </Row>
-        <Row className='show-grid'>
+        <Row className='show-grid main-content'>
           <Col xs={12} sm={5} md={4} lg={4} xlg={3}>
-            <div className='main-content container-fluid text-center'>
-              <SavedNotes activeNote={activeNote} notesLoaded={notesLoaded} notes={notes} showClicked={this.showClicked} />
-            </div>
+            <SavedNotes notesLoaded={notesLoaded} notes={notes} showClicked={this.showClicked} />
           </Col>
           <Col xs={12} sm={7} md={8} lg={8} xlg={9}>
             <NoteEditor activeNote={activeNote} saveNoteFunction={this.saveNote} />

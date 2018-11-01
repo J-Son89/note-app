@@ -1,9 +1,36 @@
+.save-note-btn-container{
+  padding-right: 1rem;
+  padding-bottom: 1rem;
+  height: 100%;
+  width:100%;
+}
+
+.save-note-btn{
+  border-radius: 100%;
+  padding: 8px 9px;
+  font-size: 1.5rem;
+  line-height: 0;
+  float:right;
+  position: relative;
+}
+
+.note-editor-title{
+  font-weight: bold;
+  padding: none;
+  margin: none;
+  border:none;
+  width: 100%;
+  border-bottom-color: rgb(213,213,213);
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+}
+
 .RichEditor-root {
   background: #fff;
-  border: 1px solid #ddd;
   font-family: 'Georgia', serif;
   font-size: 14px;
-  padding: 15px;
+  padding: 15px 0px 15px 15px;
+  min-height: 70vh;
 }
 
 .RichEditor-editor {
@@ -16,7 +43,8 @@
 .RichEditor-editor .public-DraftEditorPlaceholder-root,
 .RichEditor-editor .public-DraftEditor-content {
   margin: 0 -15px -15px;
-  padding: 15px;
+  padding-top: 10px;
+  padding-left:1.2rem;
 }
 
 .RichEditor-editor .public-DraftEditor-content {

@@ -1,80 +1,101 @@
-import React from 'react';
-import NotePage from './';
-import { createStore, storeEnhancer } from 'redux';
-import { render } from 'react-testing-library';
-import { Provider } from 'react-redux';
-import reducer from '../../global-reducer';
-import {EditorState} from 'draft-js';
+import React from 'react'
+import NotePage from './'
+import { createStore, storeEnhancer } from 'redux'
+import { render } from 'react-testing-library'
+import { Provider } from 'react-redux'
+import reducer from '../../global-reducer'
+import { EditorState } from 'draft-js'
 import thunk from 'redux-thunk'
 import { applyMiddleware } from 'redux'
-import {testSamples} from './testSamples'
+import { testSamples } from './testSamples'
 
-jest.mock('draft-js/lib/generateRandomKey', () => () => '123');
+jest.mock('draft-js/lib/generateRandomKey', () => () => '123')
 
 const middleware = applyMiddleware(
   thunk
 )
 
-export function renderWithRedux(ui,initialState) {
-	const store = createStore(reducer, initialState, middleware);
+export function renderWithRedux (ui, initialState) {
+  const store = createStore(reducer, initialState, middleware)
 
-	return {
-		...render(<Provider store={store}>{ui}</Provider>),
-		store
-	};
+  return {
+    ...render(<Provider store={store}>{ui}</Provider>),
+    store
+  }
 }
 //
 describe('Note Page', () => {
-	it('should render a blank note when the notes loaded and the active note is newly created', () => {
-		let param = {
-				notes:{	
-					notesLoaded: true,
-					notes: [
-						{
-							id: 1,
-							title: 'New Note',
-							note: EditorState.createEmpty()
-						}],
-					activeNote: {
-							id:1,
-							title: 'New Note',
-							note: EditorState.createEmpty()
-						}
-					}
-				};
-		
-		const { container, queryByValue } = renderWithRedux(
-			<NotePage/>,
-	   		param
-		);
-		expect(queryByValue('New Note')).toBeTruthy();
+  it('should render a blank note when the notes loaded and the active note is newly created', () => {
+    let param = {
+      notes: {
+        notesLoaded: true,
+        notes: [
+          {
+            id: 1,
+            title: 'New Note',
+            note: EditorState.createEmpty()
+          }],
+        activeNote: {
+          id: 1,
+          title: 'New Note',
+          note: EditorState.createEmpty()
+        }
+      }
+    }
 
-		expect(container.firstChild).toMatchSnapshot();
-	});
-	it('should render "loading..." when notes are not loaded', () => {
-		let param = {
-				notes:{	
-					notesLoaded: false,
-					notes: [
-						{
-							id: 1,
-							title: 'New Note',
-							note: EditorState.createEmpty()
-						}],
-					activeNote: {
-							id:1,
-							title: 'New Note',
-							note: EditorState.createEmpty()
-						}
-					}
-				};
-		
-		const { container, queryByText} = renderWithRedux(
-			<NotePage/>,
+    const { container, queryByValue } = renderWithRedux(
+      <NotePage />,
 	   		param
-		);
-		expect(queryByText('loading...')).toBeTruthy();
+    )
+    expect(queryByValue('New Note')).toBeTruthy()
 
-		expect(container.firstChild).toMatchSnapshot();
-	});
-});
+    expect(container.firstChild).toMatchSnapshot()
+  })
+  it('should render "loading..." when notes are not loaded', () => {
+    let param = {
+      notes: {
+        notesLoaded: false,
+        notes: [
+          {
+            id: 1,
+            title: 'New Note',
+            note: EditorState.createEmpty()
+          }],
+        activeNote: {
+          id: 1,
+          title: 'New Note',
+          note: EditorState.createEmpty()
+        }
+      }
+    }
+
+    const { container, queryByText } = renderWithRedux(
+      <NotePage />,
+	   		param
+    )
+    expect(queryByText('loading...')).toBeTruthy()
+
+    expect(container.firstChild).toMatchSnapshot()
+  })
+  it('should render "Todo 3" when note 2 is the activeNote', () => {
+    let param = {
+      notes: {
+        notesLoaded: true,
+        notes: testSamples,
+        activeNote: {
+          id: 2,
+          title: 'Projects',
+          note: testSamples[1].note
+        }
+      }
+    }
+
+    const { container, queryByText } = renderWithRedux(
+      <NotePage />,
+	   		param
+    )
+    expect(queryByText('Todo 3')).toBeTruthy()
+
+    expect(container.firstChild).toMatchSnapshot()
+  })
+})

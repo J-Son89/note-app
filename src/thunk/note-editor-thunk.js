@@ -1,9 +1,9 @@
-import axios from 'axios';
-import { notesAction } from '../actions/notesActions';
-import {config} from '../config';
-import {EditorState,convertToRaw} from 'draft-js';
+import axios from 'axios'
+import { notesAction } from '../actions/notesActions'
+import { config } from '../config'
+import { EditorState, convertToRaw } from 'draft-js'
 
-const {auth,baseURL} =config
+const { auth, baseURL } = config
 
 export function getAllNotes () {
   return function (dispatch) {
@@ -11,7 +11,7 @@ export function getAllNotes () {
       auth
     })
       .then((res) => {
-        const {id} = res.data.data[0]
+        const { id } = res.data.data[0]
         dispatch(notesAction.setNotes(res.data.data))
         dispatch(getNote(id))
       }).catch((error) => {
@@ -19,10 +19,10 @@ export function getAllNotes () {
       })
   }
 };
-export function getNote(id) {
+export function getNote (id) {
   return function (dispatch) {
     return axios.get(`${baseURL}/notes/${id}`, {
-        auth
+      auth
     })
       .then((res) => {
         dispatch(notesAction.setActiveNote(res.data.data))
@@ -32,23 +32,23 @@ export function getNote(id) {
   }
 };
 
-export function createNote(){
-  const title ='New Note'
+export function createNote () {
+  const title = 'New Note'
   const note = EditorState.createEmpty()
   const rawContentState = convertToRaw(
     note.getCurrentContent()
-  );
+  )
   const JSONNote = JSON.stringify(rawContentState)
   return function (dispatch) {
-    return axios.post(`${baseURL}/notes`, 
-    {
-      title: title,
-      note: JSONNote
-    },
-    {
+    return axios.post(`${baseURL}/notes`,
+      {
+        title: title,
+        note: JSONNote
+      },
+      {
         auth
-    })
-    .then((res) => {
+      })
+      .then((res) => {
         dispatch(getAllNotes())
         dispatch(notesAction.insertNote())
       }).catch((error) => {
@@ -60,20 +60,20 @@ export function createNote(){
 export function saveNote (id, title, note) {
   const rawContentState = convertToRaw(
     note.getCurrentContent()
-  );
+  )
   const JSONNote = JSON.stringify(rawContentState)
   return function (dispatch) {
     const url = `${baseURL}/notes/${id}`
     return axios.post(url,
-      { 
-        title:title,
-        note:JSONNote
+      {
+        title: title,
+        note: JSONNote
       },
       {
         auth
       })
       .then((res) => {
-        dispatch(notesAction.updateNote(id,title,note))
+        dispatch(notesAction.updateNote(id, title, note))
       }).catch((error) => {
         console.log(error)
       })

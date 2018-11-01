@@ -1,21 +1,21 @@
-import React from 'react';
-import { ListGroup, ListGroupItem } from 'react-bootstrap';
-import PropTypes from 'prop-types';
-import './index.css';
+import React from 'react'
+import { ListGroup, ListGroupItem, Glyphicon } from 'react-bootstrap'
+import PropTypes from 'prop-types'
+import './index.css'
 
 const SavedNotes = (props) => {
-  const { notesLoaded, notes, showClicked, activeNote } = props
+  const { notesLoaded, notes, showClicked } = props
   if (!notesLoaded) {
     return <p>loading...</p>
   }
   return (
-    <ListGroup>
+    <ListGroup className='saved-notes-list'>
       {notes.map((note, i) => {
         return (
-          <ListGroupItem key={i}
-            className={note.id === activeNote.id ? 'active' : ''}
+          <ListGroupItem className='saved-notes-list-item' key={i}
             onClick={x => { showClicked(note.id) }}>
             {note.title}
+            <Glyphicon className='saved-notes-list-item-arrow' glyph='glyphicon glyphicon-chevron-right' />
           </ListGroupItem>
         )
       }

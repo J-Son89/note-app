@@ -1,6 +1,28 @@
-.line{
-	width: 100%;
-	height:100%;
-	border-width: 1px;
-	border-style: solid;
+.saved-notes-list{
+	height: 100%;
+	border-right-color: rgb(213,213,213);
+    border-right-style: solid;
+    border-right-width:1px;
+}
+
+.saved-notes-list-item-arrow{
+	float: right;
+}
+.saved-notes-list-item{
+	text-align: -webkit-auto;
+}
+.saved-notes-list-item:hover{
+	cursor: pointer;
+}
+
+.list-group-item{
+	position: relative;
+    display: block;
+    padding: .75rem ;
+    margin-bottom: -1px;
+    background-color: #fff;
+    border: none;
+    border-bottom-color: rgb(213,213,213);
+    border-bottom-style: solid;
+    border-bottom-width: 1.5px;
 }

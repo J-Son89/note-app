@@ -1,5 +1,5 @@
 html,body {
- 
+  
 }
 
 a {
@@ -7,10 +7,6 @@ a {
 }
 p {
   font-size: 1.3rem;
-}
-.main-content {
-  padding-top: 40px;
-  padding-bottom: 40px;
 }
 .btn {
     border: solid 0.1rem ;
@@ -20,11 +16,11 @@ p {
     padding: 8px 30px;
     border-radius: 4px;
 }
+.btn-default{
+  color:#52ADDD;
+}
 .btn-primary {
   font-size: 16px;
-}
-.max-750 {
-  max-width: 75rem;
 }
 .text-secondary {
   color:#999999;
@@ -40,5 +36,6 @@ p {
 .btn:hover,
 .btn:active  {
     margin-top: 0;
-    border: solid 0.1rem #e7007a;
+    border-bottom-style: solid;
+    border-bottom-width: .2rem;
 }

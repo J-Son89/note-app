@@ -1,13 +1,12 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import 'draft-js/dist/Draft.css';
-import './index.css';
-import Editor from "draft-js-plugins-editor"
-import { Button } from 'react-bootstrap';
-import {RichUtils, getDefaultKeyBinding} from 'draft-js';
-import {BlockStyleControls} from '../BlockStyleControls';
-import {InlineStyleControls} from '../InlineStyleControls';
-import {convertToRaw} from 'draft-js';
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import Editor from 'draft-js-plugins-editor'
+import { Button, Glyphicon } from 'react-bootstrap'
+import { RichUtils, getDefaultKeyBinding, convertToRaw } from 'draft-js'
+import { BlockStyleControls } from './BlockStyleControls'
+import { InlineStyleControls } from './InlineStyleControls'
+import 'draft-js/dist/Draft.css'
+import './index.less'
 
 // const styleMap = {
 //   CODE: {
@@ -21,21 +20,21 @@ import {convertToRaw} from 'draft-js';
 class NoteEditor extends Component {
   constructor (props) {
     super(props)
-    const { activeNote} = props
+    const { activeNote } = props
     this.state = {
       id: activeNote.id,
       title: activeNote.title,
-      note:activeNote.note
+      note: activeNote.note
     }
 
-    this.focus = () => this.editor.focus();
-    this.onChangeTitle = this.onChangeTitle.bind(this);
-    this.onChangeNote = (note) => this.setState({note});
-    this.handleKeyCommand = this._handleKeyCommand.bind(this);
-    this.mapKeyToEditorCommand = this._mapKeyToEditorCommand.bind(this);
-    this.toggleBlockType = this._toggleBlockType.bind(this);
-    this.toggleInlineStyle = this._toggleInlineStyle.bind(this);
-    this.getBlockStyle = this.getBlockStyle.bind(this);
+    this.focus = () => this.editor.focus()
+    this.onChangeTitle = this.onChangeTitle.bind(this)
+    this.onChangeNote = (note) => this.setState({ note })
+    this.handleKeyCommand = this._handleKeyCommand.bind(this)
+    this.mapKeyToEditorCommand = this._mapKeyToEditorCommand.bind(this)
+    this.toggleBlockType = this._toggleBlockType.bind(this)
+    this.toggleInlineStyle = this._toggleInlineStyle.bind(this)
+    this.getBlockStyle = this.getBlockStyle.bind(this)
   }
 
   componentDidUpdate () {
@@ -56,114 +55,119 @@ class NoteEditor extends Component {
     })
   }
 
-  _handleKeyCommand(command, note) {
-    const newState = RichUtils.handleKeyCommand(note, command);
+  _handleKeyCommand (command, note) {
+    const newState = RichUtils.handleKeyCommand(note, command)
     if (newState) {
-      this.onChange(newState);
-      return true;
+      this.onChangeNote(newState)
+      return true
     }
-    return false;
+    return false
   }
 
-  _mapKeyToEditorCommand(e) {
+  _mapKeyToEditorCommand (e) {
     switch (e.keyCode) {
       case 9: // TAB
         const newEditorState = RichUtils.onTab(
           e,
           this.state.note,
-          4, /* maxDepth */
-        );
+          4 /* maxDepth */
+        )
         if (newEditorState !== this.state.note) {
-          this.onChange(newEditorState);
+          this.onChangeNote(newEditorState)
         }
-        return;
+        return
       default:
     }
-    return getDefaultKeyBinding(e);
+    return getDefaultKeyBinding(e)
   }
 
-  _toggleBlockType(blockType) {
+  _toggleBlockType (blockType) {
     this.onChangeNote(
       RichUtils.toggleBlockType(
         this.state.note,
         blockType
       )
-    );
+    )
   }
 
-  _toggleInlineStyle(inlineStyle) {
+  _toggleInlineStyle (inlineStyle) {
     this.onChangeNote(
       RichUtils.toggleInlineStyle(
         this.state.note,
         inlineStyle
       )
-    );
+    )
   }
 
-  getBlockStyle(block) {
+  getBlockStyle (block) {
     switch (block.getType()) {
-      case 'blockquote': return 'RichEditor-blockquote';
-      default: return null;
+      case 'blockquote': return 'RichEditor-blockquote'
+      default: return null
     }
   }
-
 
   render () {
     const { title, note } = this.state
     const { saveNoteFunction, activeNote } = this.props
     const rawNote = JSON.stringify(convertToRaw(note.getCurrentContent()))
     const rawActiveNote = JSON.stringify(convertToRaw(activeNote.note.getCurrentContent()))
-    const noChangesMade = rawNote===rawActiveNote
+    const noChangesMade = rawNote === rawActiveNote
     const { id } = activeNote
-    
-    let className = 'RichEditor-editor';
+
+    let className = 'RichEditor-editor'
     var contentState = note.getCurrentContent()
     if (!contentState.hasText()) {
       if (contentState.getBlockMap().first().getType() !== 'unstyled') {
-        className += ' RichEditor-hidePlaceholder';
+        className += ' RichEditor-hidePlaceholder'
       }
     }
 
     return (
-        <div className='outline'>
-        <input type='text' value={title} onChange={this.onChangeTitle} />
-      <div className="RichEditor-root">
-        <BlockStyleControls
-          editorState={note}
-          onToggle={this.toggleBlockType}
-        />
-        <InlineStyleControls
-          editorState={note}
-          onToggle={this.toggleInlineStyle}
-        />
-        <div className={className} onClick={this.focus}>
-          <Editor
-            blockStyleFn={this.getBlockStyle}
-            customStyleMap={this.styleMap}
+      <div className='note-editor-container'>
+
+        <div className='RichEditor-root'>
+          <h2>
+            <input type='text' className='note-editor-title' value={title} onChange={this.onChangeTitle} />
+          </h2>
+          <BlockStyleControls
             editorState={note}
-            handleKeyCommand={this.handleKeyCommand}
-            keyBindingFn={this.mapKeyToEditorCommand}
-            onChange={this.onChangeNote}
-            placeholder="Write your note here..."
-            ref={(ref) => this.editor = ref}
-            spellCheck={true}
+            onToggle={this.toggleBlockType}
           />
+          <InlineStyleControls
+            editorState={note}
+            onToggle={this.toggleInlineStyle}
+          />
+          <div className={className} onClick={this.focus}>
+            <Editor
+              blockStyleFn={this.getBlockStyle}
+              customStyleMap={this.styleMap}
+              editorState={note}
+              handleKeyCommand={this.handleKeyCommand}
+              keyBindingFn={this.mapKeyToEditorCommand}
+              onChange={this.onChangeNote}
+              placeholder='Write your note here...'
+              ref={(ref) => {
+                this.editor= ref
+                return 1
+                }}
+              spellCheck
+            />
+          </div>
+        </div>
+        <div className='save-note-btn-container'>
+          <Button disabled={noChangesMade} bsStyle='primary' className='save-note-btn' onClick={x => { saveNoteFunction(id, title, note) }}>
+            <Glyphicon glyph='glyphicon glyphicon-floppy-disk' />
+          </Button>
         </div>
       </div>
-      <Button disabled={noChangesMade} bsStyle='default' bsSize='small' onClick={x => { saveNoteFunction(id, title, note) }}> Save</Button>
-      </div>
-    );
+    )
   }
 }
-
-
 
 NoteEditor.propTypes = {
   activeNote: PropTypes.object,
   saveNoteFunction: PropTypes.func,
-  lastSave:PropTypes.object
+  lastSave: PropTypes.object
 }
 
 export default NoteEditor
-
-
