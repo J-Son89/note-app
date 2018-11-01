@@ -1,7 +1,7 @@
 import React from 'react'
 import { ListGroup, ListGroupItem, Glyphicon } from 'react-bootstrap'
 import PropTypes from 'prop-types'
-import './index.css'
+import './index.less'
 
 const SavedNotes = (props) => {
   const { notesLoaded, notes, showClicked } = props

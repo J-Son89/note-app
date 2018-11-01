@@ -71,13 +71,11 @@ exports[`Note Page should render "loading..." when notes are not loaded 1`] = `
         <div
           class="RichEditor-root"
         >
-          <h2>
-            <input
-              class="note-editor-title"
-              type="text"
-              value="New Note"
-            />
-          </h2>
+          <input
+            class="note-editor-title"
+            type="text"
+            value="New Note"
+          />
           <div
             class="RichEditor-controls"
           >
@@ -312,13 +310,11 @@ exports[`Note Page should render a blank note when the notes loaded and the acti
         <div
           class="RichEditor-root"
         >
-          <h2>
-            <input
-              class="note-editor-title"
-              type="text"
-              value="New Note"
-            />
-          </h2>
+          <input
+            class="note-editor-title"
+            type="text"
+            value="New Note"
+          />
           <div
             class="RichEditor-controls"
           >

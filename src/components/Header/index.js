@@ -2,7 +2,7 @@ import React from 'react'
 import { Navbar, Nav } from 'react-bootstrap'
 import CreateNote from '../CreateNote'
 import logo from '../../images/notepad.png'
-import './index.css'
+import './index.less'
 
 export const Header = (props) => {
   const { createNoteFunction } = props

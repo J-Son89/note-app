@@ -6,7 +6,7 @@ import { Grid, Row, Col } from 'react-bootstrap'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import { getAllNotes, saveNote, getNote, createNote } from '../../thunk/note-editor-thunk'
-import './index.css'
+import './index.less'
 
 class NotePage extends Component {
   constructor (props) {
