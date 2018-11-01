@@ -126,9 +126,7 @@ class NoteEditor extends Component {
       <div className='note-editor-container'>
 
         <div className='RichEditor-root'>
-          <h2>
             <input type='text' className='note-editor-title' value={title} onChange={this.onChangeTitle} />
-          </h2>
           <BlockStyleControls
             editorState={note}
             onToggle={this.toggleBlockType}
